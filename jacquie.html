@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MML 2026 · Jacquelin Duffoo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1F3A2C; --beet:#97294A; --beet-bright:#B83159;
+  --oat:#E3D8BF; --bone:#F4F0E6; --carbon:#181612; --surface:#FFFFFF;
+  --carbon-60:rgba(24,22,18,.6); --carbon-38:rgba(24,22,18,.38); --carbon-15:rgba(24,22,18,.15);
+  --row-line:rgba(24,22,18,.06);
+  --tag-down-bg:rgba(143,177,75,.18); --tag-down-text:#3E5A20;
+  --tag-up-bg:rgba(184,49,89,.14); --tag-up-text:#7C2140;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,sans-serif;
+  --mono:"Space Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --forest:#6FA07D; --beet:#E8859E; --beet-bright:#D4536E;
+    --oat:#26201A; --bone:#171310; --carbon:#F1ECE1; --surface:#1E1913;
+    --carbon-60:rgba(241,236,225,.62); --carbon-38:rgba(241,236,225,.4); --carbon-15:rgba(241,236,225,.14);
+    --row-line:rgba(241,236,225,.08);
+    --tag-down-bg:rgba(143,177,75,.22); --tag-down-text:#B9DE8E;
+    --tag-up-bg:rgba(184,49,89,.26); --tag-up-text:#F2A8BB;
+  }
+}
+:root[data-theme="dark"]{
+  --forest:#6FA07D; --beet:#E8859E; --beet-bright:#D4536E;
+  --oat:#26201A; --bone:#171310; --carbon:#F1ECE1; --surface:#1E1913;
+  --carbon-60:rgba(241,236,225,.62); --carbon-38:rgba(241,236,225,.4); --carbon-15:rgba(241,236,225,.14);
+  --row-line:rgba(241,236,225,.08);
+  --tag-down-bg:rgba(143,177,75,.22); --tag-down-text:#B9DE8E;
+  --tag-up-bg:rgba(184,49,89,.26); --tag-up-text:#F2A8BB;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);background:var(--bone);color:var(--carbon);line-height:1.5;-webkit-font-smoothing:antialiased;}
+.mono{font-family:var(--mono)}
+.ey{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--carbon-60);}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2.5px solid var(--beet-bright);outline-offset:2px;border-radius:2px}
+
+.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:clamp(24px,4vw,34px);letter-spacing:-.03em;line-height:.95}
+.brand span{color:var(--beet)}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:12.5px;letter-spacing:.02em;color:var(--carbon-60);margin-top:6px}
+.meta{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--carbon-60);line-height:1.6}
+
+.head-card{background:var(--surface);border:1px solid var(--carbon-15);border-radius:16px;padding:20px 22px;margin-bottom:16px}
+.hc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.hc-name{font-size:clamp(22px,3vw,28px)}
+.hc-role{font-family:var(--mono);font-size:11px;color:var(--carbon-60);margin-top:4px;line-height:1.5}
+
+.planpick{display:flex;gap:6px;background:var(--oat);border-radius:10px;padding:4px}
+.pbtn{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:7px;color:var(--carbon-60)}
+.pbtn.active{background:var(--forest);color:var(--bone)}
+
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.kcell{background:var(--bone);border-radius:12px;padding:12px 14px}
+.kcell .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--carbon-60)}
+.kcell .v{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.05;margin-top:5px;font-variant-numeric:tabular-nums}
+.kcell .s{font-family:var(--mono);font-size:10.5px;color:var(--carbon-60);margin-top:2px}
+
+.elevwrap{background:var(--surface);border:1px solid var(--carbon-15);border-radius:16px;padding:18px 20px;margin-bottom:16px}
+.elevwrap .ey{color:var(--forest);display:block;margin-bottom:8px}
+
+.tblwrap{background:var(--surface);border:1px solid var(--carbon-15);border-radius:16px;padding:6px 0;overflow-x:auto}
+.tbl-toolbar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px}
+.planpick.sm{padding:3px;background:var(--bone)}
+.planpick.sm .pbtn{padding:6px 12px;font-size:10.5px}
+table{width:100%;border-collapse:collapse;min-width:460px}
+thead th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--carbon-60);padding:10px 16px;border-bottom:1px solid var(--carbon-15);position:sticky;top:0;background:var(--surface)}
+tbody td{padding:8px 16px;font-size:13px;border-bottom:1px solid var(--row-line);font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--bone)}
+.num{font-family:var(--mono)}
+.grade-tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10.5px;padding:2px 8px;border-radius:20px}
+.grade-down{background:var(--tag-down-bg);color:var(--tag-down-text)}
+.grade-up{background:var(--tag-up-bg);color:var(--tag-up-text)}
+.grade-flat{background:var(--oat);color:var(--carbon-60)}
+.note{font-family:var(--mono);font-size:10.5px;color:var(--carbon-38);margin-top:14px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">Media Maratón de Lima <span>2026</span>
+      <small>Tu plan de carrera — Plan A / Plan B</small>
+    </div>
+    <div class="meta">23 ago 2026 · 21.1km<br>~14-19°C, húmedo, nublado<br>Bajada 0-11km, dos subidas 2da mitad</div>
+  </div>
+  <main id="stage"></main>
+</div>
+<script>
+const A = {"name": "Jacquelin Duffoo", "race_role": "A (real objetivo)", "plan_a": {"splits": [{"km_start": 0, "km_end": 1, "dist": 1, "grade": -0.39, "pace_s": 368.4, "dur_s": 368.4, "elev_start": 166.0, "elev_end": 162.1}, {"km_start": 1, "km_end": 2, "dist": 1, "grade": -1.1, "pace_s": 365.6, "dur_s": 365.6, "elev_start": 162.1, "elev_end": 151.0}, {"km_start": 2, "km_end": 3, "dist": 1, "grade": -1.27, "pace_s": 365, "dur_s": 365, "elev_start": 151.0, "elev_end": 138.4}, {"km_start": 3, "km_end": 4, "dist": 1, "grade": -0.39, "pace_s": 368.4, "dur_s": 368.4, "elev_start": 138.4, "elev_end": 134.5}, {"km_start": 4, "km_end": 5, "dist": 1, "grade": 0.15, "pace_s": 370, "dur_s": 370, "elev_start": 134.5, "elev_end": 136.0}, {"km_start": 5, "km_end": 6, "dist": 1, "grade": -1.16, "pace_s": 365.4, "dur_s": 365.4, "elev_start": 136.0, "elev_end": 124.4}, {"km_start": 6, "km_end": 7, "dist": 1, "grade": -0.89, "pace_s": 366.4, "dur_s": 366.4, "elev_start": 124.4, "elev_end": 115.5}, {"km_start": 7, "km_end": 8, "dist": 1, "grade": -0.06, "pace_s": 370, "dur_s": 370, "elev_start": 115.5, "elev_end": 114.9}, {"km_start": 8, "km_end": 9, "dist": 1, "grade": -0.63, "pace_s": 367.5, "dur_s": 367.5, "elev_start": 114.9, "elev_end": 108.5}, {"km_start": 9, "km_end": 10, "dist": 1, "grade": -0.64, "pace_s": 367.4, "dur_s": 367.4, "elev_start": 108.5, "elev_end": 102.1}, {"km_start": 10, "km_end": 11, "dist": 1, "grade": -0.86, "pace_s": 366.5, "dur_s": 366.5, "elev_start": 102.1, "elev_end": 93.5}, {"km_start": 11, "km_end": 12, "dist": 1, "grade": 0.68, "pace_s": 376.1, "dur_s": 376.1, "elev_start": 93.5, "elev_end": 100.3}, {"km_start": 12, "km_end": 13, "dist": 1, "grade": 0.63, "pace_s": 375.7, "dur_s": 375.7, "elev_start": 100.3, "elev_end": 106.6}, {"km_start": 13, "km_end": 14, "dist": 1, "grade": 0.66, "pace_s": 375.9, "dur_s": 375.9, "elev_start": 106.6, "elev_end": 113.2}, {"km_start": 14, "km_end": 15, "dist": 1, "grade": 1.86, "pace_s": 385, "dur_s": 385, "elev_start": 113.2, "elev_end": 131.8}, {"km_start": 15, "km_end": 16, "dist": 1, "grade": 0.43, "pace_s": 373.9, "dur_s": 373.9, "elev_start": 131.8, "elev_end": 136.1}, {"km_start": 16, "km_end": 17, "dist": 1, "grade": -0.62, "pace_s": 367.5, "dur_s": 367.5, "elev_start": 136.1, "elev_end": 129.9}, {"km_start": 17, "km_end": 18, "dist": 1, "grade": -1.65, "pace_s": 365, "dur_s": 365, "elev_start": 129.9, "elev_end": 113.3}, {"km_start": 18, "km_end": 19, "dist": 1, "grade": 0.27, "pace_s": 370, "dur_s": 370, "elev_start": 113.3, "elev_end": 116.0}, {"km_start": 19, "km_end": 20, "dist": 1, "grade": 0.6, "pace_s": 375.4, "dur_s": 375.4, "elev_start": 116.0, "elev_end": 122.0}, {"km_start": 20, "km_end": 21.1, "dist": 1.098, "grade": 0.9, "pace_s": 378.1, "dur_s": 415.0, "elev_start": 122.0, "elev_end": 131.9}], "total_s": 7820.2, "total_fmt": "2:10:20", "avg_pace": "6:11"}, "plan_b": {"splits": [{"km_start": 0, "km_end": 1, "dist": 1, "grade": -0.39, "pace_s": 376.4, "dur_s": 376.4, "elev_start": 166.0, "elev_end": 162.1}, {"km_start": 1, "km_end": 2, "dist": 1, "grade": -1.1, "pace_s": 373.6, "dur_s": 373.6, "elev_start": 162.1, "elev_end": 151.0}, {"km_start": 2, "km_end": 3, "dist": 1, "grade": -1.27, "pace_s": 373, "dur_s": 373, "elev_start": 151.0, "elev_end": 138.4}, {"km_start": 3, "km_end": 4, "dist": 1, "grade": -0.39, "pace_s": 376.4, "dur_s": 376.4, "elev_start": 138.4, "elev_end": 134.5}, {"km_start": 4, "km_end": 5, "dist": 1, "grade": 0.15, "pace_s": 378, "dur_s": 378, "elev_start": 134.5, "elev_end": 136.0}, {"km_start": 5, "km_end": 6, "dist": 1, "grade": -1.16, "pace_s": 373.4, "dur_s": 373.4, "elev_start": 136.0, "elev_end": 124.4}, {"km_start": 6, "km_end": 7, "dist": 1, "grade": -0.89, "pace_s": 374.4, "dur_s": 374.4, "elev_start": 124.4, "elev_end": 115.5}, {"km_start": 7, "km_end": 8, "dist": 1, "grade": -0.06, "pace_s": 378, "dur_s": 378, "elev_start": 115.5, "elev_end": 114.9}, {"km_start": 8, "km_end": 9, "dist": 1, "grade": -0.63, "pace_s": 375.5, "dur_s": 375.5, "elev_start": 114.9, "elev_end": 108.5}, {"km_start": 9, "km_end": 10, "dist": 1, "grade": -0.64, "pace_s": 375.4, "dur_s": 375.4, "elev_start": 108.5, "elev_end": 102.1}, {"km_start": 10, "km_end": 11, "dist": 1, "grade": -0.86, "pace_s": 374.5, "dur_s": 374.5, "elev_start": 102.1, "elev_end": 93.5}, {"km_start": 11, "km_end": 12, "dist": 1, "grade": 0.68, "pace_s": 384.1, "dur_s": 384.1, "elev_start": 93.5, "elev_end": 100.3}, {"km_start": 12, "km_end": 13, "dist": 1, "grade": 0.63, "pace_s": 383.7, "dur_s": 383.7, "elev_start": 100.3, "elev_end": 106.6}, {"km_start": 13, "km_end": 14, "dist": 1, "grade": 0.66, "pace_s": 383.9, "dur_s": 383.9, "elev_start": 106.6, "elev_end": 113.2}, {"km_start": 14, "km_end": 15, "dist": 1, "grade": 1.86, "pace_s": 393, "dur_s": 393, "elev_start": 113.2, "elev_end": 131.8}, {"km_start": 15, "km_end": 16, "dist": 1, "grade": 0.43, "pace_s": 381.9, "dur_s": 381.9, "elev_start": 131.8, "elev_end": 136.1}, {"km_start": 16, "km_end": 17, "dist": 1, "grade": -0.62, "pace_s": 375.5, "dur_s": 375.5, "elev_start": 136.1, "elev_end": 129.9}, {"km_start": 17, "km_end": 18, "dist": 1, "grade": -1.65, "pace_s": 373, "dur_s": 373, "elev_start": 129.9, "elev_end": 113.3}, {"km_start": 18, "km_end": 19, "dist": 1, "grade": 0.27, "pace_s": 378, "dur_s": 378, "elev_start": 113.3, "elev_end": 116.0}, {"km_start": 19, "km_end": 20, "dist": 1, "grade": 0.6, "pace_s": 383.4, "dur_s": 383.4, "elev_start": 116.0, "elev_end": 122.0}, {"km_start": 20, "km_end": 21.1, "dist": 1.098, "grade": 0.9, "pace_s": 386.1, "dur_s": 423.8, "elev_start": 122.0, "elev_end": 131.9}], "total_s": 7989.0, "total_fmt": "2:13:09", "avg_pace": "6:19"}};
+
+let currentPlan = "plan_a";
+let currentGroup = "km";
+
+function fmtPace(s){
+  const m = Math.floor(s/60), sec = Math.round(s%60);
+  return `${m}:${String(sec).padStart(2,'0')}`;
+}
+function fmtCum(s){
+  s = Math.round(s);
+  const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
+  return h>0 ? `${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}` : `${m}:${String(sec).padStart(2,'0')}`;
+}
+
+function elevSvg(splits){
+  const W=680,H=140,PL=36,PR=16,PT=14,PB=28;
+  const gw=W-PL-PR, gh=H-PT-PB;
+  const all = splits.map(s=>s.elev_start).concat([splits[splits.length-1].elev_end]);
+  const minE = Math.min(...all)-4, maxE = Math.max(...all)+4;
+  const maxKm = splits[splits.length-1].km_end;
+  const x = km => PL + (km/maxKm)*gw;
+  const y = e => PT + gh - ((e-minE)/(maxE-minE))*gh;
+  let path = `M ${x(0).toFixed(1)} ${y(splits[0].elev_start).toFixed(1)}`;
+  splits.forEach(s=>{ path += ` L ${x(s.km_end).toFixed(1)} ${y(s.elev_end).toFixed(1)}`; });
+  let area = path + ` L ${x(maxKm).toFixed(1)} ${(PT+gh).toFixed(1)} L ${x(0).toFixed(1)} ${(PT+gh).toFixed(1)} Z`;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block;overflow:visible">`;
+  s += `<path d="${area}" fill="var(--oat)" opacity="0.7"/>`;
+  s += `<path d="${path}" fill="none" stroke="var(--forest)" stroke-width="2"/>`;
+  [0,5,10,15,20].forEach(km=>{
+    if(km<=maxKm){
+      s += `<line x1="${x(km).toFixed(1)}" y1="${PT}" x2="${x(km).toFixed(1)}" y2="${PT+gh}" stroke="var(--carbon-15)" stroke-width="1"/>`;
+      s += `<text x="${x(km).toFixed(1)}" y="${H-8}" font-size="10" fill="var(--carbon-60)" text-anchor="middle" font-family="Space Mono,monospace">${km}km</text>`;
+    }
+  });
+  s += `</svg>`;
+  return s;
+}
+
+const TERRAIN_SEGMENTS = [
+  {start:0, end:11.1, label:"km 0-11.1 (bajada larga)"},
+  {start:11.1, end:15.4, label:"km 11.1-15.4 (subida 1)"},
+  {start:15.4, end:18.3, label:"km 15.4-18.3 (bajada corta)"},
+  {start:18.3, end:21.1, label:"km 18.3-21.1 (subida final)"},
+];
+
+function groupBy5k(splits){
+  const buckets = [];
+  const finish = splits[splits.length-1].km_end;
+  for(let start=0; start<finish; start+=5){
+    const end = Math.min(start+5, finish);
+    buckets.push({start, end});
+  }
+  return buckets.map(b=>{
+    const parts = splits.filter(r=>r.km_start >= b.start-1e-6 && r.km_end <= b.end+1e-6);
+    const dist = parts.reduce((acc,r)=>acc+r.dist,0);
+    const dur = parts.reduce((acc,r)=>acc+r.dur_s,0);
+    const elevChange = parts.length ? (parts[parts.length-1].elev_end - parts[0].elev_start) : 0;
+    const grade = dist>0 ? (elevChange/(dist*1000))*100 : 0;
+    return {km_start:b.start, km_end:b.end, dist, dur_s:dur, pace_s:dur/dist, grade};
+  });
+}
+
+function groupBySegment(splits){
+  const finish = splits[splits.length-1].km_end;
+  return TERRAIN_SEGMENTS.map(seg=>{
+    const end = Math.min(seg.end, finish);
+    const parts = splits.filter(r=>r.km_start >= seg.start-1e-6 && r.km_end <= end+1e-6);
+    const dist = parts.reduce((acc,r)=>acc+r.dist,0);
+    const dur = parts.reduce((acc,r)=>acc+r.dur_s,0);
+    const elevChange = parts.length ? (parts[parts.length-1].elev_end - parts[0].elev_start) : 0;
+    const grade = dist>0 ? (elevChange/(dist*1000))*100 : 0;
+    return {km_start:seg.start, km_end:end, label:seg.label, dist, dur_s:dur, pace_s:dur/dist, grade};
+  });
+}
+
+function renderStage(){
+  const plan = A[currentPlan];
+  const stage = document.getElementById('stage');
+  const displayRows = currentGroup === "5k" ? groupBy5k(plan.splits)
+    : currentGroup === "tramo" ? groupBySegment(plan.splits)
+    : plan.splits;
+  const rows = displayRows.map(row=>{
+    const cum = plan.splits.filter(r=>r.km_end<=row.km_end+1e-6).reduce((acc,r)=>acc+r.dur_s,0);
+    let tag='grade-flat', arrow='→';
+    if(row.grade < -0.3){ tag='grade-down'; arrow='↓'; }
+    else if(row.grade > 0.3){ tag='grade-up'; arrow='↑'; }
+    const label = currentGroup === "5k"
+      ? `${row.km_start.toFixed(0)}–${row.km_end.toFixed(row.km_end%1?1:0)}km`
+      : currentGroup === "tramo"
+      ? row.label
+      : `${row.km_start.toFixed(row.km_start%1?1:0)}–${row.km_end.toFixed(row.km_end%1?1:0)}`;
+    return `<tr>
+      <td class="num">${label}</td>
+      <td><span class="grade-tag ${tag}">${arrow} ${row.grade>0?'+':''}${row.grade.toFixed(1)}%</span></td>
+      <td class="num">${fmtPace(row.pace_s)}/km</td>
+      <td class="num">${fmtCum(cum)}</td>
+    </tr>`;
+  }).join('');
+
+  stage.innerHTML = `
+    <div class="head-card">
+      <div class="hc-top">
+        <div>
+          <div class="hc-name">${A.name}</div>
+          <div class="hc-role">${A.race_role}</div>
+        </div>
+        <div class="planpick">
+          <button class="pbtn ${currentPlan==='plan_a'?'active':''}" data-plan="plan_a">Plan A</button>
+          <button class="pbtn ${currentPlan==='plan_b'?'active':''}" data-plan="plan_b">Plan B</button>
+        </div>
+      </div>
+      <div class="kpis" style="grid-template-columns:1fr">
+        <div class="kcell"><div class="l">${currentPlan==='plan_a'?'Plan A':'Plan B'}</div><div class="v">${plan.total_fmt}</div><div class="s">${plan.avg_pace}/km</div></div>
+      </div>
+    </div>
+    <div class="elevwrap">
+      <span class="ey">Perfil de elevación con ritmo por tramo</span>
+      ${elevSvg(plan.splits)}
+    </div>
+    <div class="tblwrap">
+      <div class="tbl-toolbar">
+        <span class="ey">Splits</span>
+        <div class="planpick sm">
+          <button class="pbtn ${currentGroup==='km'?'active':''}" data-group="km">Por km</button>
+          <button class="pbtn ${currentGroup==='5k'?'active':''}" data-group="5k">Cada 5K</button>
+          <button class="pbtn ${currentGroup==='tramo'?'active':''}" data-group="tramo">Por tramo</button>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>${currentGroup==='tramo'?'Tramo':'Km'}</th><th>Pendiente</th><th>Ritmo</th><th>Acumulado</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <div class="note">Ritmo ajustado por pendiente: bajadas ganan poco (conservador), subidas cuestan más de lo que las bajadas regalan. El circuito baja los primeros 11km y luego tiene dos subidas en la segunda mitad, terminando en subida.</div>
+  `;
+  stage.querySelectorAll('.pbtn[data-plan]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ currentPlan = btn.dataset.plan; renderStage(); });
+  });
+  stage.querySelectorAll('.pbtn[data-group]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ currentGroup = btn.dataset.group; renderStage(); });
+  });
+}
+
+renderStage();
+</script>
+</body>
+</html>
